@@ -1,17 +1,13 @@
 #! /usr/bin/env bash
 
-# by torstein.k.johansen@gmail.com
+## Copyright (C) 2016 Torstein Krause Johansen
+## See LICENSE for further details.
+
 set -o errexit
 set -o nounset
 set -o pipefail
 
-read_user_input() {
-  :
-}
-
 main() {
-  read_user_input "$@"
-
   local hipchat_emoticons_list=$(
     curl -s https://www.hipchat.com/emoticons | \
       sed -r -n 's#.*<div>[(](.*)[)]</div>#\1#p' | \
@@ -36,10 +32,3 @@ EOF
 }
 
 main "$@"
-
-
-
-
-
-
-
